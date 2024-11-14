@@ -144,7 +144,7 @@ const experiences = [
 const projects = [
   {
     id: 'project-1',
-    name: 'KomiKult',
+    name: 'Ehouse',
     description: 'A comic characters list app that displays Marvel characters.',
     tags: [
       {
@@ -163,7 +163,7 @@ const projects = [
     image: komikult,
     //repo: 'https://github.com/shaqdeff/KomiKult',
     repo: 'https://github.com/TT-Tan/EHouseV1',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
+    demo: 'https://e-house-v1-yzde.vercel.app/home/slider-filter-search',
   },
   {
     id: 'project-2',
