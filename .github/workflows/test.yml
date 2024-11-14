@@ -43,7 +43,7 @@ jobs:
       - name: Build project
         run: npm run build || echo "Build failed, but continuing the pipeline"  # Bỏ qua lỗi build
         
-deploy:
+  deploy:
     needs: build  # Job deploy sẽ chạy sau khi job build hoàn thành
     runs-on: self-hosted  # Sử dụng runner tự quản
 
@@ -60,3 +60,5 @@ deploy:
           git pull origin main || { echo "Git pull failed"; exit 1; }
           docker-compose -f docker-compose.yml up -d --build || { echo "Docker deploy failed"; exit 1; }
           echo "Deployment complete!"
+        
+
