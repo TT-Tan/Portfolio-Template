@@ -51,10 +51,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Vercel CLI
+      - name: Install Vercel CLI via npm
         run: |
-          curl -sL https://github.com/vercel/vercel/releases/download/v29.0.0/vercel-29.0.0-linux-x64.tar.gz | tar xz
-          mv vercel /usr/local/bin
+          npm install -g vercel  # Cài đặt Vercel CLI bằng npm
 
       - name: Deploy to Vercel
         env:
