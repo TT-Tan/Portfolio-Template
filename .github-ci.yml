@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Thay thế bằng phiên bản Node.js bạn đang dùng
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint code
+        run: npm run lint:check  # Đảm bảo script lint có trong package.json
+
+      - name: Run tests
+        run: npm test  # Đảm bảo script test có trong package.json
+
+      - name: Build project
+        run: npm run build  # Đảm bảo script build có trong package.json
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to server
+        run: |
+          echo "Deploying to server..."
+          # Add your deploy commands here

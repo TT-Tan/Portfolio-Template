@@ -161,7 +161,8 @@ const projects = [
       },
     ],
     image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
+    //repo: 'https://github.com/shaqdeff/KomiKult',
+    repo: 'https://github.com/TT-Tan/EHouseV1',
     demo: 'https://shaqdeff.github.io/KomiKult/',
   },
   {
