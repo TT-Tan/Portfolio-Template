@@ -51,6 +51,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Set up Node.js (again for deploy job)
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Đảm bảo Node.js được cài đặt trong job deploy
+
       - name: Install Vercel CLI via npm
         run: |
           npm install -g vercel  # Cài đặt Vercel CLI bằng npm
@@ -60,5 +65,4 @@ jobs:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Lấy token từ GitHub Secrets
         run: |
           vercel --prod --token $VERCEL_TOKEN
-        
 
