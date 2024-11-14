@@ -44,21 +44,22 @@ jobs:
         run: npm run build || echo "Build failed, but continuing the pipeline"  # Bỏ qua lỗi build
         
   deploy:
-    needs: build  # Job deploy sẽ chạy sau khi job build hoàn thành
-    runs-on: self-hosted  # Sử dụng runner tự quản
+    needs: build  # Chạy deploy sau khi build thành công
+    runs-on: self-hosted  # Hoặc sử dụng môi trường phù hợp với bạn
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Triển khai lên server hoặc môi trường khác (ví dụ: Docker, FTP, SSH, v.v)
-      - name: Deploy to production server
+      - name: Set up Vercel CLI
         run: |
-          echo "Deploying to production..."
-          # Ví dụ: Kéo mã nguồn mới nhất từ Git và triển khai Docker container (nếu dùng Docker)
-          cd /home/your_project_directory || { echo "Directory not found"; exit 1; }
-          git pull origin main || { echo "Git pull failed"; exit 1; }
-          docker-compose -f docker-compose.yml up -d --build || { echo "Docker deploy failed"; exit 1; }
-          echo "Deployment complete!"
+          curl -sL https://github.com/vercel/vercel/releases/download/v29.0.0/vercel-29.0.0-linux-x64.tar.gz | tar xz
+          mv vercel /usr/local/bin
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Lấy token từ GitHub Secrets
+        run: |
+          vercel --prod --token $VERCEL_TOKEN
         
 
