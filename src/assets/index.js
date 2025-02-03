@@ -60,6 +60,8 @@ import movie from './projects/movie-metro.png';
 import nyeusi from './projects/nyeusi.png';
 import space from './projects/space-hub.png';
 
+import camo from './projects/camo-glass.png';
+
 export {
   bwmap,
   nairobi,
@@ -115,4 +117,5 @@ export {
   fpt,
   nineplus,
   pasona,
+  camo,
 };
