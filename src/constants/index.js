@@ -23,6 +23,7 @@ import {
   fpt,
   nineplus,
   pasona,
+  camo,
 } from '../assets';
 
 export const navLinks = [
@@ -164,6 +165,29 @@ const projects = [
     //repo: 'https://github.com/shaqdeff/KomiKult',
     repo: 'https://github.com/TT-Tan/EHouseV1',
     demo: 'https://e-house-v1-yzde.vercel.app/home/slider-filter-search',
+  },
+  {
+    id: 'project-2',
+    name: 'Prodigy Glasses',
+    description: 'Prodigy Glasses is a website that allows users to buy glasses online.',
+    tags: [
+      {
+        name: 'react',
+        color: 'blue-text-gradient',
+      },
+      {
+        name: 'mongodb',
+        color: 'green-text-gradient',
+      },
+      {
+        name: 'tailwind',
+        color: 'pink-text-gradient',
+      },
+    ],
+    image: camo,
+    //repo: 'https://github.com/shaqdeff/KomiKult',
+    repo: 'https://github.com/TuyenNedd/Prodigy-glasses-MERN',
+    demo: 'https://prodigy-glasses.vercel.app/',
   },
   // {
   //   id: 'project-2',
